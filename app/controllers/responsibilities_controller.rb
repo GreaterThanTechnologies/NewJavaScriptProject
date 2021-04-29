@@ -1,10 +1,10 @@
 class ResponsibilitiesController < ApplicationController
-
+  require 'pry'
+  
   def index
-    responsibilities = Responsibility.All 
-    render json: responsibilities, include: [:task]
+    responsibilities = Responsibility.all 
+    render json: responsibilities 
   end
 
-  def  
-
+ 
 end
