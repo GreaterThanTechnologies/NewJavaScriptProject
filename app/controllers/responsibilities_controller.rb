@@ -4,4 +4,7 @@ class ResponsibilitiesController < ApplicationController
     responsibilities = Responsibility.All 
     render json: responsibilities, include: [:task]
   end
+
+  def  
+
 end
