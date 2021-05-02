@@ -51,5 +51,14 @@ h1 {
 }
 
 body {
-  background-image: url("/Users/jameshyatt/Desktop/Development/code/JavaScriptProject/storage/images/Middle Monitor.png");
+  background-image: url("../storage/images/Middle Monitor.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.afterThought {
+  font-size: small;
+  font-weight: 100;
+  text-decoration-line: underline;
 }
