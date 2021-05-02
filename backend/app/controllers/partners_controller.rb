@@ -25,6 +25,8 @@ class PartnersController < ApplicationController
     partner.destroy
   end
 
+  private
+  
   def partner_params
     params.require(:partner).permit(:fname, :lname, :title, :level)
   end
