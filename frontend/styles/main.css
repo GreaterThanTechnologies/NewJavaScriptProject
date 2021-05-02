@@ -51,7 +51,7 @@ h1 {
 }
 
 body {
-  background-image: url("../storage/images/Middle Monitor.png");
+  background-image: url("../../backend/storage/images/Middle Monitor.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
