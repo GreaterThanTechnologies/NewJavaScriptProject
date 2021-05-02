@@ -37,7 +37,6 @@ h1 {
   background: radial-gradient(circle, rgba(180,32,51,1) 0%, rgba(255,255,255,1) 50%, rgba(60,58,110,1) 100%);
 }
 
-
 .whiteFont {
   color: #fff
 }
@@ -71,3 +70,24 @@ form {
   make font color to be blue */
   color: white
 }
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 125%;
+}
+
+.right { 
+  width: 100%
+}
+
+/* Clear floats after the columns
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
