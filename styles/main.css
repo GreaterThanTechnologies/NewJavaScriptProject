@@ -62,3 +62,12 @@ body {
   font-weight: 100;
   text-decoration-line: underline;
 }
+
+form {
+  /* use the .center class to center the form 
+  make form header to be blue
+  make font color to be white
+  make form background to be white
+  make font color to be blue */
+  color: white
+}

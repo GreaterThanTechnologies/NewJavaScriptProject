@@ -9,7 +9,7 @@
       <h1>Joint Venture Partner Manager</h1>
         <table class="center">
           <tr>
-            <th>Partner <p class="afterThought"> click partner to expand </p></th>
+            <th>Partner <i class="afterThought"> click partner to expand </i></th>
             <th>Title</th>
             <th>Level</th>
             <th>Action</th>
@@ -18,12 +18,22 @@
             <td>'partner_name'</td>
             <td>'partner_title'</td>
             <td>'partner_level'</td>
-            <td><input type="checkbox" name="Male" value="Male"> Delete<br>
-              <input type="checkbox" name="Female" value="Female"> Edit<br>
+            <td><input type="checkbox" name="Male" value="delete"> Delete
+              <input type="checkbox" name="Female" value="edit"> Edit
           </tr>
         </table>
       </div>
 
+      <div class="center">
+      <form>
+        <label for='fname'>First Name</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for='lname'>Last Name</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for='title'>Title</label><br>
+        <input type="text" id="title" name="title"><br>
+      </form>
+    </div>
     </body>
   </head>
 </html>
