@@ -1,4 +1,4 @@
-/**This works and renders json in the browser window appropriately */
+ /**This works and renders json in the browser window appropriately */
 function fetchResponsibilities() {
   return fetch('http://localhost:3000/responsibilities')
   .then(resp => resp.json())
