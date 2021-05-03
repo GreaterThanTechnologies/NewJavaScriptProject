@@ -3,13 +3,11 @@ table {
   border-collapse: collapse;
   width: 60%;
 }
-
 td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-
 th {
   border: 1px solid #dddddd;
   background-color:#B42033;
@@ -17,17 +15,15 @@ th {
   padding: 8px;
   color: #fff
 }
-
 tr:nth-child(even) {
   background-color: #c8c8c8;
 }
-
 tr:nth-child(odd) {
   background-color:lightslategrey;
 }
 
 h2 {
-  text-align: center;
+  color: white; 
 }
 
 h1 {
@@ -40,8 +36,12 @@ h1 {
 .whiteFont {
   color: #fff
 }
+
 .tableDiv {
-  padding-top: 250px;
+  padding-top: 150px;
+}
+.negativeSpace100 {
+  padding-top: -100px;
 }
 
 .center {
@@ -63,27 +63,21 @@ body {
 }
 
 form {
-  
-  color: white
+   color: white
 }
 
 .column {
-  float: left;
-  padding: 10px;
+  float:inherit;
 }
-
 .left {
   width: 125%;
 }
-
 .right { 
   width: 100%
 }
-
-/* Clear floats after the columns
 .row:after {
   content: "";
   display: table;
   clear: both;
-} */
+}
 
