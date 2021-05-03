@@ -11,18 +11,30 @@
         <h1>Joint Venture Partner Manager</h1>
         <div class="row">
           <h2>Add Task for Partner</h2>
-          <div id="div4">
+
+
+
+          <div id="div4"> 
             <!-- Start Form -->
-            <form action="post" id="form1" class="column left center">
+            <form id="form1" class="column left center">
               <label for="fname">Select Partner</label><br>
               <select id="fname name="fname><br>
+                <!-- appending immediately after receiving json response from function fetchPartners()  
+                find these DOM elements and append-->
               <option value="fname">'partner_name'</option></select><br><br>
               <label for="title">Task to Add</label><br>
-              <input type="text" id="partnerTask" name="task">
-              <input id="addTask" type="submit" value="Add Another Task"><br>
-              <input id="submitNewTask" type="submit" value="Submit New Task">
             </form>
+            <div id="inputList">
+              <input type="text" name="task">
+            </div>
+            <button onclick="addAnotherTask()">Add Another Task</button><br><br>
+            <button onclick="submitTaskToPartnerDB()">Submit All Tasks to Partner's Profile</button>
+
           </div>
+
+
+
+
             <!-- Start Table -->
             <div id="div2" class="column right">
               <table id="table1" class="negativeSpace100">
@@ -46,6 +58,6 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript" scr="../src/index.js"></script>
+    <script type="text/javascript" src="../src/index.js"></script>
   </body>
 </html>

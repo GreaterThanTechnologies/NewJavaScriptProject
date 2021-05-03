@@ -10,31 +10,36 @@ td {
 }
 th {
   border: 1px solid #dddddd;
-  background-color:#B42033;
+  background-color: #b42033;
   text-align: left;
   padding: 8px;
-  color: #fff
+  color: #fff;
 }
 tr:nth-child(even) {
   background-color: #c8c8c8;
 }
 tr:nth-child(odd) {
-  background-color:lightslategrey;
+  background-color: lightslategrey;
 }
 
 h2 {
-  color: white; 
+  color: white;
 }
 
 h1 {
   text-align: center;
   color: white;
-  background: rgb(180,32,51);
-  background: radial-gradient(circle, rgba(180,32,51,1) 0%, rgba(255,255,255,1) 50%, rgba(60,58,110,1) 100%);
+  background: rgb(180, 32, 51);
+  background: radial-gradient(
+    circle,
+    rgba(180, 32, 51, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(60, 58, 110, 1) 100%
+  );
 }
 
 .whiteFont {
-  color: #fff
+  color: #fff;
 }
 
 .tableDiv {
@@ -63,17 +68,17 @@ body {
 }
 
 form {
-   color: white
+  color: white;
 }
 
 .column {
-  float:inherit;
+  float: inherit;
 }
 .left {
   width: 125%;
 }
-.right { 
-  width: 100%
+.right {
+  width: 100%;
 }
 .row:after {
   content: "";
@@ -81,3 +86,12 @@ form {
   clear: both;
 }
 
+#inputList{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+* {
+  border: 1px solid black;
+}

@@ -23,6 +23,7 @@ function fetchPartners() {
   return fetch('http://localhost:3000/partners')
   .then(resp => resp.json())
   .then(json => console.log(json))
+  // this has the partners
 }
 
 // /**not working, not recognizing the click event */
@@ -37,6 +38,24 @@ function fetchPartners() {
 //     alert('Element for Partner Name has been clicked!');
 //   }
 // });
+
+
+
+function addAnotherTask() {
+  // event.preventDefault()
+  let addTaskList = document.getElementById('inputList')
+  let task = document.createElement("INPUT");
+  addTaskList.appendChild(task)
+}
+
+
+// function myFunction() {
+//   var x = document.createElement("INPUT");
+
+//   x.setAttribute("type", "text");
+//   x.setAttribute("placeholder", "default");
+//   document.body.appendChild(x);
+// }
 
 
 
