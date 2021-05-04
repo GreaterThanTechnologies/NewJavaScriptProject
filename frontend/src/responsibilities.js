@@ -16,3 +16,6 @@ function addAnotherTask() {
   let task = document.createElement("INPUT");
   addTaskList.appendChild(task)
 }
+// works
+fetchResponsibilities()
+console.log("from Responsibilities.js")
