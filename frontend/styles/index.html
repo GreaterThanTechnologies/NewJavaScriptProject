@@ -18,11 +18,13 @@
             <!-- Start Form -->
             <form id="form1" class="column left center">
               <label for="fname">Select Partner</label><br>
-              <select id="fname" name=fname><br>
-               
+              <select id="partnerOptionsList" name=fname><br>
               <div id="showPartnersList">
-                <option value="fname">partnerList</option></select><br><br>
+                
+                <option value="fname">Select</option><br><br>
+               
               </div>
+            </select>
               <label for="title">Task to Add</label><br>
             </form>    
             <div id="inputList">
@@ -45,9 +47,8 @@
                   <th>Action</th>
                 </tr>
                 <tr>
-                  <td id="partnerName">'partner_name'</td>
-                  <td id="partnerTitle">'partner_title</td>
-                  <td id="partnerLevel">'partner_level'</td>
+                 
+
                   <td><input id="deleteCheckbox" type="checkbox" name="delete" value="delete">Delete
                     <input id="editCheckBox" type="checkbox" name="edit" value="edit">
                     <input id="taskBtn" type="button" name="submit" value="Submit Action"></td>
@@ -60,7 +61,7 @@
     </div>
     <script type="text/javascript" src="../src/partners.js"></script>
     <script type="text/javascript" src="../src/responsibilities.js"></script>
-    <script type="text/javascript" src="../src/index.js"></script>
+  
 
   </body>
 </html>
