@@ -6,3 +6,8 @@ class Partner {
     this.level = partner.level
   }
 }
+
+function submitTasksToDb() {
+  console.log("Yup, Ninja")
+  // This is to append the task(s) to the partner indicated from the drop down
+}
