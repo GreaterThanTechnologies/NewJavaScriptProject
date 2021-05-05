@@ -82,6 +82,5 @@ function partnerTableRows(array) {
 
 
 // works
-fetchPartners()
 console.log("from partners.js")
  

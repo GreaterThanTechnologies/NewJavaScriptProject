@@ -20,5 +20,4 @@ function addAnotherTask() {
 
 
 // works
-fetchResponsibilities()
 console.log("from Responsibilities.js")
