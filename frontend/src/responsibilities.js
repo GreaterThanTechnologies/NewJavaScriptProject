@@ -10,11 +10,11 @@ class Responsibilities {
   }
 }
 
-function addAnotherTask(event) {
-  event.preventDefault()
-  let addTaskList = document.getElementById('addTaskClick')
+function addAnotherTask() {
+   event.preventDefault()
+  let addTaskList = document.getElementById('inputList')
   let task = document.createElement("INPUT");
-   addTaskList.appendChild(task)
+  inputList.appendChild(task)
 }
 
 

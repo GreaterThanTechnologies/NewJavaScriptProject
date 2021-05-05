@@ -17,11 +17,11 @@ function Partner(fname, lname, title, level) {
   this.level = level
 }
 // for adding tasks to specific partners
-function submitTasksToPartnerTable(event) {
-  event.preventDefault()
-  let form = document.getElementById('submitTaskClick');
+function submitTasksToDb() {
+  // event.preventDefault()
+  let form = document.getElementById('form1');
   let task = form.elements['']
-   debugger
+    
   // let submitPartnerTaskBtn = 
   // This is to append the task(s) to the partner indicated from the drop down
 }
