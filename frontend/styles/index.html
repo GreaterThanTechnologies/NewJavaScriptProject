@@ -15,7 +15,7 @@
 
             <!-- Start Form -->
           <div id="div4"> 
-            <form method="post" id="form1" action="/create" class="column left center">
+            <form  id="form1"   class="column left center">
               <label for="fname">Select Partner</label><br>
                 <select id="partnerOptionsList" name=fname><br>
                   <div id="showPartnersList">
@@ -48,10 +48,13 @@
                   <th>Level</th>
                   <th>Action</th>
                 </tr>
-                
-                  <td><input id="deleteCheckbox" type="checkbox" name="delete" value="delete">Delete
-                    <input id="editCheckBox" type="checkbox" name="edit" value="edit">
-                    <input id="taskBtn" type="button" name="submit" value="Submit Action"></td>
+
+                <div id="deleteEditSubmitActionTableColumn">
+                  <td><input type="checkbox" name="delete" value="delete">Delete
+                    <input type="checkbox" name="edit" value="edit">Edit
+                    <input type="button" name="submit" value="Submit Action">
+                  </td>
+                </div>
 
               </table>
             </div>

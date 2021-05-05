@@ -1,3 +1,5 @@
+// will be used for creating partners in the future
+// not sure how this works at the moment
 function partner(fname, lname, title, level) {
   return {
     fname,
@@ -6,32 +8,36 @@ function partner(fname, lname, title, level) {
     level 
   }
 }
-
+// will be used for creating partners later
+// not sure how this works at the moment
 function Partner(fname, lname, title, level) {
   this.fname = fname,
   this.lname = lname,
   this.title = title,
   this.level = level
 }
-
+// for adding tasks to specific partners
 function submitTasksToPartnerTable(event) {
   event.preventDefault()
-  let form = document.getElementById('form1');
+  let form = document.getElementById('submitTaskClick');
   let task = form.elements['']
    debugger
   // let submitPartnerTaskBtn = 
   // This is to append the task(s) to the partner indicated from the drop down
 }
-
+// gathers information from the database and returning the
+// response for manipulating the DOM
 function fetchPartners() {
   fetch('http://localhost:3000/partners')
   .then(resp => resp.json())
   .then(array => {
     listPartnerLists(array)
     partnerTableRows(array)
+    // partnerTableActionRow(array)
   })
 }
-
+// fills in the dropdown select partner box with the
+// current partners within the DB
 function listPartnerLists(array) { 
   let partnerList = document.getElementById('partnerOptionsList')
   array.forEach(function(object) {
@@ -42,8 +48,13 @@ function listPartnerLists(array) {
     partnerList.add(partner)
   })
 }
-
+// populates the table with the partner data, names, title
+// level.
 function partnerTableRows(array) { 
+  /** i believe i am going to need to iterate through finActionDiv to 
+   * insert the innerHTML into cell with index(3)
+   */
+  let findActionDiv = document.getElementById('deleteEditSubmitActionTableColumn')
   let tableData = document.getElementById('table1')
   array.forEach(function(object) {
     // creates the  row inside the table
@@ -59,9 +70,17 @@ function partnerTableRows(array) {
     // within index 2 of the tableRow sets the html to equal partner's
     // level as listed within the level column
     let tableCellLevel = tableRow.insertCell(2)
-    tableCellLevel.innerHTML = object.level    
+    tableCellLevel.innerHTML = object.level
+    // inserting the edit delete actions in the action column
+    // within the partners table
+    let tableCellAction = tableRow.insertCell(3)
+    tableCellAction.innerHTML = findActionDiv  
   })
 }
+
+                
+
+
 // works
 fetchPartners()
 console.log("from partners.js")
