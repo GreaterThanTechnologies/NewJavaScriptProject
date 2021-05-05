@@ -7,34 +7,40 @@
   <body>
     <div id="div0">
 
+
+
+
+
       <!-- Column Section -->
       <div id="div1" class="tableDiv">
         <h1>Joint Venture Partner Manager</h1>
         <div class="row">
           <h2>Add Task for Partner</h2>
 
+
             <!-- Start Form -->
           <div id="div4"> 
-            <form  id="form1" class="column left center">
+            <form  name="form1" onsubmit="submitTasksToDb()" id="form1" class="column left center">
               <label for="fname">Select Partner</label><br>
                 <select id="partnerOptionsList" name=fname><br>
                   <div id="showPartnersList">
-                    <option value="fname">Select</option><br><br>
+                    <!-- <option value="fname">Select</option><br><br> -->
                   </div>
                 </select><br>
               <label for="title">Add Task</label><br>
-            <!-- </form>  -->
-
             <div id="inputList">
               <input type="text" name="task">
             </div>
+            <!-- needs to be attached to a click event -->
             <div id="addTaskClick">
               <button onclick="addAnotherTask()">Add Another Task</button><br><br>
             </div>
-            <div id="submitTaskClick">
-              <button onclick="submitTasksToDb()">Submit Tasks to Partners Task List</button>
-            </div>
+          <!-- needs to be attached to a click event -->
+              <button id="submitTasksBtn" type="submit">Submit Tasks to Partners Task List</button>
+           
           </form> 
+                      <!-- </form>  -->
+
           </div>
 
 

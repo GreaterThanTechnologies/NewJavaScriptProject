@@ -16,15 +16,7 @@ function Partner(fname, lname, title, level) {
   this.title = title,
   this.level = level
 }
-// for adding tasks to specific partners
-function submitTasksToDb() {
-  // event.preventDefault()
-  let form = document.getElementById('form1');
-  let task = form.elements['']
-    
-  // let submitPartnerTaskBtn = 
-  // This is to append the task(s) to the partner indicated from the drop down
-}
+
 // gathers information from the database and returning the
 // response for manipulating the DOM
 function fetchPartners() {
@@ -74,7 +66,11 @@ function partnerTableRows(array) {
     // inserting the edit delete actions in the action column
     // within the partners table
     let tableCellAction = tableRow.insertCell(3)
-    tableCellAction.innerHTML = findActionDiv  
+    let x = document.createElement("button");
+    // x.setAttribute("type", "button");
+    x.setAttribute("text", "Delete" )
+    tableCellAction.appendChild(x) 
+    tableCellAction.innerHTML += "Delete"
   })
 }
 
