@@ -1,15 +1,25 @@
-class Partner {
-  constructor(partner) {
-    this.fname = partner.fname
-    this.lname = partner.lname
-    this.title = partner.title
-    this.level = partner.level
-
+function partner(fname, lname, title, level) {
+  return {
+    fname,
+    lname,
+    title,
+    level 
   }
 }
 
-function submitTasksToDb() {
-  console.log("from submitTasksToDbFunction")
+function Partner(fname, lname, title, level) {
+  this.fname = fname,
+  this.lname = lname,
+  this.title = title,
+  this.level = level
+}
+
+function submitTasksToPartnerTable(event) {
+  event.preventDefault()
+  let form = document.getElementById('form1');
+  let task = form.elements['']
+   debugger
+  // let submitPartnerTaskBtn = 
   // This is to append the task(s) to the partner indicated from the drop down
 }
 
@@ -49,21 +59,9 @@ function partnerTableRows(array) {
     // within index 2 of the tableRow sets the html to equal partner's
     // level as listed within the level column
     let tableCellLevel = tableRow.insertCell(2)
-    tableCellLevel.innerHTML = object.level
-
-    
+    tableCellLevel.innerHTML = object.level    
   })
 }
-
-  
-  // delete after
-  function myFunction() {
-    var x = document.getElementById("mySelect");
-    var partner = document.createElement("option");
-    partner.text = "Kiwi";
-    x.add(option);
-  }
-  // 
 // works
 fetchPartners()
 console.log("from partners.js")

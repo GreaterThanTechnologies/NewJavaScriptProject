@@ -12,28 +12,30 @@
         <h1>Joint Venture Partner Manager</h1>
         <div class="row">
           <h2>Add Task for Partner</h2>
-          <div id="div4"> 
-
 
             <!-- Start Form -->
-            <form id="form1" class="column left center">
+          <div id="div4"> 
+            <form method="post" id="form1" action="/create" class="column left center">
               <label for="fname">Select Partner</label><br>
-              <select id="partnerOptionsList" name=fname><br>
-              <div id="showPartnersList">
-                
-                <option value="fname">Select</option><br><br>
-               
-              </div>
-            </select>
-              <label for="title">Task to Add</label><br>
-            </form>    
+                <select id="partnerOptionsList" name=fname><br>
+                  <div id="showPartnersList">
+                    <option value="fname">Select</option><br><br>
+                  </div>
+                </select><br>
+              <label for="title">Add Task</label><br>
+            <!-- </form>  -->
+
             <div id="inputList">
               <input type="text" name="task">
             </div>
-            <button onclick="addAnotherTask()">Add Another Task</button><br><br>
-            <button onclick="submitTasksToDb()">Submit Tasks to Partners Task List</button>
+            <div id="addTaskClick">
+              <button onclick="addAnotherTask()">Add Another Task</button><br><br>
+            </div>
+            <div id="submitTaskClick">
+              <button onclick="submitTasksToPartnerTable()">Submit Tasks to Partners Task List</button>
+            </div>
+          </form> 
           </div>
-
 
 
 
@@ -46,13 +48,11 @@
                   <th>Level</th>
                   <th>Action</th>
                 </tr>
-                <tr>
-                 
-
+                
                   <td><input id="deleteCheckbox" type="checkbox" name="delete" value="delete">Delete
                     <input id="editCheckBox" type="checkbox" name="edit" value="edit">
                     <input id="taskBtn" type="button" name="submit" value="Submit Action"></td>
-                </tr>
+
               </table>
             </div>
           

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   get '/partners' => 'partners#index'
   get '/responsibities' => 'responsibilities#index'
+  post '/create' => 'responsibilities#create'
 end

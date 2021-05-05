@@ -10,12 +10,15 @@ class Responsibilities {
   }
 }
 
-function addAnotherTask() {
-  // event.preventDefault()
-  let addTaskList = document.getElementById('inputList')
+function addAnotherTask(event) {
+  event.preventDefault()
+  let addTaskList = document.getElementById('addTaskClick')
   let task = document.createElement("INPUT");
    addTaskList.appendChild(task)
 }
+
+
+
 // works
 fetchResponsibilities()
 console.log("from Responsibilities.js")
