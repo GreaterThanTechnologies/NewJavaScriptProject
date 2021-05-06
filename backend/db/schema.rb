@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_164547) do
+ActiveRecord::Schema.define(version: 2021_05_06_171309) do
 
   create_table "partners", force: :cascade do |t|
     t.string "fname"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2021_05_02_164547) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "level"
     t.string "lname"
+    t.string "email"
+    t.string "password_digest"
+    t.string "username"
   end
 
   create_table "responsibilities", force: :cascade do |t|
