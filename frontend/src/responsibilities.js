@@ -6,9 +6,9 @@ function fetchResponsibilities() {
   })
 }
 
-
 function expandPartnerTasks() {
-  alert("Awesome Sauce!!!")
+  document.getElementById('table1').innerHTML = ""
+  
 }
 
 function addAnotherTask() {

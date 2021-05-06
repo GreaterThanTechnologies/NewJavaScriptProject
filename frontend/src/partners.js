@@ -1,6 +1,5 @@
 // gathers information from the database and returning the
 // response for manipulating the DOM
-
 function fetchPartners() {
   fetch('http://localhost:3000/partners')
   .then(resp => resp.json())
@@ -33,10 +32,8 @@ function partnerTableRows(array) {
     // first and last name as listed within the partner column as well
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
-    tableCellName.innerHTML = object.fname + ' ' + object.lname;
+    tableCellName.innerHTML = object.fname + " " + object.lname;
     tableCellName.setAttribute("onclick", "expandPartnerTasks()");
-    
-    
      // within index 1 of the tableRow sets the html to equal partner's
     // title as listed within the title column
     let tableCellTitle = tableRow.insertCell(1)
