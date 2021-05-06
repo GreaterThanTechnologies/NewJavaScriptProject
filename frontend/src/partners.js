@@ -6,7 +6,6 @@ function fetchPartners() {
   .then(array => {
     listPartnerLists(array)
     partnerTableRows(array)
-    // partnerTableActionRow(array)
   })
 }
 // fills in the dropdown select partner box with the
@@ -30,10 +29,11 @@ function partnerTableRows(array) {
     // creates the  row inside the table
     let tableRow = tableData.insertRow(object.id)
     // within index 0 of the tableRow sets the html to equal partner's
-    // first and last name as listed within the partner column
+    // first and last name as listed within the partner column as well
+    // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
     tableCellName.innerHTML = object.fname + " " + object.lname;
-    tableCellName.setAttribute("onclick", "alert('blah blah blah')");
+    tableCellName.setAttribute("onclick", "expandPartnerTasks()");
     // within index 1 of the tableRow sets the html to equal partner's
     // title as listed within the title column
     let tableCellTitle = tableRow.insertCell(1)
@@ -56,6 +56,11 @@ function partnerTableRows(array) {
 function deletePartnerFunction() {
 alert("Sexy Stuff Going on Here!")
 }
+/** function to expand the partner task when name in clicked from within the table. */
+function expandPartnerTasks() {
+  alert("kricky")
+}
+
 
                 
 
