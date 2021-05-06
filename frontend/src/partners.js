@@ -57,9 +57,7 @@ function deletePartnerFunction() {
 alert("Sexy Stuff Going on Here!")
 }
 /** function to expand the partner task when name in clicked from within the table. */
-function expandPartnerTasks() {
-  alert("kricky")
-}
+
 
 
                 
