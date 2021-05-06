@@ -33,6 +33,7 @@ function partnerTableRows(array) {
     // first and last name as listed within the partner column
     let tableCellName = tableRow.insertCell(0)
     tableCellName.innerHTML = object.fname + " " + object.lname;
+    tableCellName.setAttribute("onclick", "alert('blah blah blah')");
     // within index 1 of the tableRow sets the html to equal partner's
     // title as listed within the title column
     let tableCellTitle = tableRow.insertCell(1)
