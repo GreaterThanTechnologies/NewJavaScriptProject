@@ -11,11 +11,15 @@ class PartnersController < ApplicationController
   end
 
   def create
-    partner = Partner.new(partner_params)
+    partner = User.new(partner_params)
+    partner.email = params[:partner][:email].downcase
+    partner.partnername = params[:partner][:email].upcase.split("@")[0]
     if partner.save
+      # session[:partner_id] = partner.id
       render json: partner
     else
-      render json: {message: "failed..."}
+      render json: {message: "Sign up failed..."}
+    end
   end
 
   def update
