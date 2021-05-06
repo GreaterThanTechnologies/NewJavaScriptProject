@@ -1,22 +1,3 @@
-// will be used for creating partners in the future
-// not sure how this works at the moment
-function partner(fname, lname, title, level) {
-  return {
-    fname,
-    lname,
-    title,
-    level 
-  }
-}
-// will be used for creating partners later
-// not sure how this works at the moment
-function Partner(fname, lname, title, level) {
-  this.fname = fname,
-  this.lname = lname,
-  this.title = title,
-  this.level = level
-}
-
 // gathers information from the database and returning the
 // response for manipulating the DOM
 function fetchPartners() {
@@ -43,9 +24,6 @@ function listPartnerLists(array) {
 // populates the table with the partner data, names, title
 // level.
 function partnerTableRows(array) { 
-  /** i believe i am going to need to iterate through finActionDiv to 
-   * insert the innerHTML into cell with index(3)
-   */
   let findActionDiv = document.getElementById('deleteEditSubmitActionTableColumn')
   let tableData = document.getElementById('table1')
   array.forEach(function(object) {
@@ -66,12 +44,16 @@ function partnerTableRows(array) {
     // inserting the edit delete actions in the action column
     // within the partners table
     let tableCellAction = tableRow.insertCell(3)
-    let x = document.createElement("button");
+    // let x = document.createElement("button");
     // x.setAttribute("type", "button");
-    x.setAttribute("text", "Delete" )
-    tableCellAction.appendChild(x) 
-    tableCellAction.innerHTML += "Delete"
+    // x.setAttribute("text", "Delete" )
+    // tableCellAction.appendChild(x) 
+    tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
   })
+}
+/**function "clickEvent" to delete partner from onclick within table */
+function deletePartnerFunction() {
+alert("Sexy Stuff Going on Here!")
 }
 
                 

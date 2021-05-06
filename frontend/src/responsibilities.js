@@ -4,35 +4,21 @@ function fetchResponsibilities() {
   .then(json => console.log(json))
 }
 
-class Responsibilities {
-  constructor(responsibility) {
-    this.task = responsibility.task
-  }
-}
-
 function addAnotherTask() {
    event.preventDefault()
   let addTaskList = document.getElementById('inputList')
   let task = document.createElement("INPUT");
-  task.name = "task"
   task.type = "text"
+  task.name = "task"
   inputList.appendChild(task)
 }
 
 // for adding tasks to specific partners, must use eventListener
 // per instructor
-// document.getElementById("submitTasksBtn").addEventListener('click', submitTasksToDb)
-
-/** this function is called on from within the form1 onsubmit= to be
- * performed when submit button was clicked
- */
+document.getElementById("submitTasksBtn").addEventListener('click', submitTasksToDb)
 function submitTasksToDb() {
-  event.preventDefault() /**obviously stops default action of submitting the
-  form to the db which would refresh the page */
-/** assigns the variable taskData to all the form elements, in this case
- * ["form1"]["task"] specifically the "task"
- */
-  let taskDataTasks = document.forms["form1"]["task"]
+  event.preventDefault() 
+   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
   /** lists the value of the array from the index input value */
 
@@ -50,12 +36,7 @@ function submitTasksToDb() {
   else{
     console.log(taskDataTasks.value)
   }
-  // console.log(taskDataTasks.value)
-
-  // console.log(taskDataTasks[0].value)
   console.log(taskDataName.value) 
-  // displays the length of array
-  // console.log(taskDataTasks)   
 }
 
 // works
