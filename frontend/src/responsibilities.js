@@ -1,24 +1,31 @@
-function fetchResponsibilities() {
+const responsibilities = []
+
+function fetchResponsibilities(userId) {
   return fetch('http://localhost:3000/responsibilities')
-  .then(resp => resp.json())
-  .then(array => {
-    // expandPartnerTasks(array)
+  .then(response => response.json())
+  .then(data => { for (let counter = 0; counter < data.length; counter++){
+  if(userId==data[counter].partner_id)
+    return (data[counter].task)
+  };
   })
 }
+ 
+function expandPartnerTasks(event) {
+  // let resp = fetchResponsibilities()
+  let pIdSplice = event.target.id.slice(1)
+  // for (let counter = 0; counter < resp.length; counter++) {
+  //   console.log(resp.length)
+  // }
+  let resp = fetchResponsibilities(pIdSplice)
+  console.log(resp)
+}
 
-function expandPartnerTasks() {
-  document.getElementById('table1').innerHTML = ""
+
+function addAnotherTask(array) {
+}
+
   
-}
 
-function addAnotherTask() {
-   event.preventDefault()
-  let addTaskList = document.getElementById('inputList')
-  let task = document.createElement("INPUT");
-  task.type = "text"
-  task.name = "task"
-  inputList.appendChild(task)
-}
 
 // for adding tasks to specific partners, must use eventListener
 // per instructor

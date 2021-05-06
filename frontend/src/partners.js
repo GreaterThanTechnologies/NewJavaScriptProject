@@ -1,3 +1,16 @@
+class Partner {
+  constructor(id, fname, lname, title, level) {
+    this.id = id
+    this.fname = fname
+    this.lname = lname
+    this.title = title
+    this.level = level
+  }
+  static deletePartner(e) {
+    // class method for deleting the partner
+  }
+}
+
 // gathers information from the database and returning the
 // response for manipulating the DOM
 function fetchPartners() {
@@ -16,14 +29,13 @@ function listPartnerLists(array) {
     let partner = document.createElement("OPTION");
     partner.text = object.fname
     partner.id = object.id
-    console.log(partner)
+    // console.log(partner)
     partnerList.add(partner)
   })
 }
 // populates the table with the partner data, names, title
 // level.
 function partnerTableRows(array) { 
-  let findActionDiv = document.getElementById('deleteEditSubmitActionTableColumn')
   let tableData = document.getElementById('table1')
   array.forEach(function(object) {
     // creates the  row inside the table
@@ -32,8 +44,9 @@ function partnerTableRows(array) {
     // first and last name as listed within the partner column as well
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
+    tableCellName.setAttribute("id", "c" + object.id)
     tableCellName.innerHTML = object.fname + " " + object.lname;
-    tableCellName.setAttribute("onclick", "expandPartnerTasks()");
+    // tableCellName.addEventListener("click", "expandPartnerTasks");
      // within index 1 of the tableRow sets the html to equal partner's
     // title as listed within the title column
     let tableCellTitle = tableRow.insertCell(1)
@@ -50,7 +63,9 @@ function partnerTableRows(array) {
     // x.setAttribute("text", "Delete" )
     // tableCellAction.appendChild(x) 
     tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
+    document.getElementById("c" + object.id).addEventListener('click', expandPartnerTasks)  
   })
+  
 }
 /**function "clickEvent" to delete partner from onclick within table */
 function deletePartnerFunction() {
