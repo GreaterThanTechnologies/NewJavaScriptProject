@@ -11,8 +11,11 @@ class PartnersController < ApplicationController
   end
 
   def create
-    partner = Partner.create(partner_params)
-    render json: partner
+    partner = Partner.new(partner_params)
+    if partner.save
+      render json: partner
+    else
+      render json: {message: "failed..."}
   end
 
   def update

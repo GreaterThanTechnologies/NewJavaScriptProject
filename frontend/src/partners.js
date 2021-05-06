@@ -32,9 +32,11 @@ function partnerTableRows(array) {
     // first and last name as listed within the partner column as well
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
-    tableCellName.innerHTML = object.fname + " " + object.lname;
+    tableCellName.innerHTML = object.fname + ' ' + object.lname;
     tableCellName.setAttribute("onclick", "expandPartnerTasks()");
-    // within index 1 of the tableRow sets the html to equal partner's
+    
+    
+     // within index 1 of the tableRow sets the html to equal partner's
     // title as listed within the title column
     let tableCellTitle = tableRow.insertCell(1)
     tableCellTitle.innerHTML = object.title
@@ -55,12 +57,7 @@ function partnerTableRows(array) {
 /**function "clickEvent" to delete partner from onclick within table */
 function deletePartnerFunction() {
 alert("Sexy Stuff Going on Here!")
-}
-/** function to expand the partner task when name in clicked from within the table. */
-
-
-
-                
+} 
 
 
 // works

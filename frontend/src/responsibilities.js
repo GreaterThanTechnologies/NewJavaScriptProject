@@ -2,13 +2,13 @@ function fetchResponsibilities() {
   return fetch('http://localhost:3000/responsibilities')
   .then(resp => resp.json())
   .then(array => {
-    expandPartnerTasks(array)
+    // expandPartnerTasks(array)
   })
 }
 
 
-function expandPartnerTasks(array) {
-   
+function expandPartnerTasks() {
+  alert("Awesome Sauce!!!")
 }
 
 function addAnotherTask() {
@@ -30,13 +30,13 @@ function submitTasksToDb() {
  
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
-      console.log(taskDataTasks[counter].value)
+       console.log(taskDataTasks[counter].value)
     }
   }
   else{
     console.log(taskDataTasks.value)
   }
-  console.log(taskDataName.value) 
+    console.log(taskDataName.value) 
 }
 
 // works
