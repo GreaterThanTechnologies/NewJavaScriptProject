@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get '/partners' => 'partners#index'
   get '/responsibities' => 'responsibilities#index'
   post '/create' => 'responsibilities#create'
+  post 'sessions', to: 'sessions#create'
+  delete 'sessions', to: 'sessions#destroy'
+  post 'sessions/token', to: 'sessions#identify'
+
 end
