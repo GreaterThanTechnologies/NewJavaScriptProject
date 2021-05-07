@@ -1,4 +1,5 @@
 class ResponsibilitySerializer
-  attributes :id. :partner_id, :task
-  belongs_to :partner
+  include FastJsonapi::ObjectSerializer
+  attributes :id :partner_id, :task
+  # belongs_to :partner
 end
