@@ -45,6 +45,7 @@ function partnerTableRows(array) {
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
     tableCellName.setAttribute("id", "c" + object.id ) 
+    tableCellName.setAttribute("class", "modal")
     tableCellName.innerHTML = object.fname + " " + object.lname;
     // tableCellName.addEventListener("click", "expandPartnerTasks");
      // within index 1 of the tableRow sets the html to equal partner's
@@ -63,7 +64,8 @@ function partnerTableRows(array) {
     // x.setAttribute("text", "Delete" )
     // tableCellAction.appendChild(x) 
     tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
-    document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities)  
+    document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities) 
+     
 
   })
   

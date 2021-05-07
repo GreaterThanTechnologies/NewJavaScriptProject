@@ -27,24 +27,25 @@ function fetchResponsibilities(event) {
   let pIdSplice = event.target.id.slice(1)
   return fetch(`http://localhost:3000/responsibilities/${pIdSplice}`)
   .then(response => response.json())
-  .then(data => { displayInsideModal(data)})
+  .then(data => { displayInsideModal(data.task)})
 }
 
 function displayInsideModal(data) {
-  
- console.log(data.task)
+ console.log(data)
+//  let modal = document.getElementById("myModal");
 }
  
 
 
 
-function addAnotherTask(array) {
-
+function addAnotherTask() {
+  event.preventDefault()
+ let addTaskList = document.getElementById('inputList')
+ let task = document.createElement("INPUT");
+ task.type = "text"
+ task.name = "task"
+ inputList.appendChild(task)
 }
-
-  
-
-
 // for adding tasks to specific partners, must use eventListener
 // per instructor
 document.getElementById("submitTasksBtn").addEventListener('click', submitTasksToDb)
