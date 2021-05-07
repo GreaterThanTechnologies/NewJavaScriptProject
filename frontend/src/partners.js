@@ -63,7 +63,7 @@ function partnerTableRows(array) {
     // x.setAttribute("text", "Delete" )
     // tableCellAction.appendChild(x) 
     tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
-    document.getElementById("c" + object.id).addEventListener('click', expandPartnerTasks)  
+    document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities)  
   })
   
 }

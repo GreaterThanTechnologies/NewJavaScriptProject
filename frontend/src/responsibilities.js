@@ -1,13 +1,36 @@
 const responsibilities = []
 
+// async function fetchResponsibilities(){
+//   let tester = await fetch('http://localhost:3000/responsibilities');
+//   let works = await tester.json();
+//   return (works)
+// }
+// async function getData() {
+//   let working = await fetchStuff();
+//   console.log(working);
+// }
+
+
+
+// function fetchResponsibilities(userId) {
+//   return fetch('http://localhost:3000/responsibilities')
+//   .then(response => response.json())
+//   .then(data => { for (let counter = 0; counter < data.length; counter++){
+//   if(userId==data[counter].partner_id)
+//     return (data[counter].task)
+//    };
+//   })
+// }
+
+/** after reviewing the fetch cheat sheet */
 function fetchResponsibilities(userId) {
   return fetch('http://localhost:3000/responsibilities')
   .then(response => response.json())
-  .then(data => { for (let counter = 0; counter < data.length; counter++){
-  if(userId==data[counter].partner_id)
-    return (data[counter].task)
-  };
-  })
+  .then(data => { displayInsideModal(data)})
+}
+
+function displayInsideModal(data) {
+  console.log(data)
 }
  
 function expandPartnerTasks(event) {
