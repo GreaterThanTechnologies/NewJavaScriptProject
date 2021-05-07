@@ -23,28 +23,23 @@ const responsibilities = []
 // }
 
 /** after reviewing the fetch cheat sheet */
-function fetchResponsibilities(userId) {
-  return fetch('http://localhost:3000/responsibilities')
+function fetchResponsibilities(event) {
+  let pIdSplice = event.target.id.slice(1)
+  return fetch(`http://localhost:3000/responsibilities/${pIdSplice}`)
   .then(response => response.json())
   .then(data => { displayInsideModal(data)})
 }
 
 function displayInsideModal(data) {
-  console.log(data)
+  
+ console.log(data.task)
 }
  
-function expandPartnerTasks(event) {
-  // let resp = fetchResponsibilities()
-  let pIdSplice = event.target.id.slice(1)
-  // for (let counter = 0; counter < resp.length; counter++) {
-  //   console.log(resp.length)
-  // }
-  let resp = fetchResponsibilities(pIdSplice)
-  console.log(resp)
-}
+
 
 
 function addAnotherTask(array) {
+
 }
 
   

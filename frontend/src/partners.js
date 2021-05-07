@@ -44,7 +44,7 @@ function partnerTableRows(array) {
     // first and last name as listed within the partner column as well
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
-    tableCellName.setAttribute("id", "c" + object.id)
+    tableCellName.setAttribute("id", "c" + object.id ) 
     tableCellName.innerHTML = object.fname + " " + object.lname;
     // tableCellName.addEventListener("click", "expandPartnerTasks");
      // within index 1 of the tableRow sets the html to equal partner's
@@ -64,6 +64,7 @@ function partnerTableRows(array) {
     // tableCellAction.appendChild(x) 
     tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
     document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities)  
+
   })
   
 }
