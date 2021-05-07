@@ -94,11 +94,10 @@ form {
 
 
 
-* {
+/* * {
   border: 1px solid black;
-}
+} */
 
-/** added from W3 */
 
 .modal {
   display: none; /* Hidden by default */
@@ -136,4 +135,4 @@ form {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
+} 

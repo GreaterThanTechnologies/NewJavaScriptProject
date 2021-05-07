@@ -45,7 +45,6 @@ function partnerTableRows(array) {
     // as includes the onclick to the partner name
     let tableCellName = tableRow.insertCell(0)
     tableCellName.setAttribute("id", "c" + object.id ) 
-    tableCellName.setAttribute("class", "modal")
     tableCellName.innerHTML = object.fname + " " + object.lname;
     // tableCellName.addEventListener("click", "expandPartnerTasks");
      // within index 1 of the tableRow sets the html to equal partner's
