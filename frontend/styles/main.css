@@ -75,16 +75,27 @@ form {
   float: inherit;
 }
 .left {
-  width: 125%;
+  width: 25%;
 }
 .right {
-  width: 100%;
+  width: 75%;
 }
-.row:after {
+
+#elHolder {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+#dataTable {
+  width: 100%;
+  float: center;
+}
+
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 #inputList, #partnerList {
   display: flex;
