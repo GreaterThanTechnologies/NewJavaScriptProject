@@ -58,20 +58,25 @@ function partnerTableRows(array) {
     // inserting the edit delete actions in the action column
     // within the partners table
     let tableCellAction = tableRow.insertCell(3)
-    // let x = document.createElement("button");
-    // x.setAttribute("type", "button");
-    // x.setAttribute("text", "Delete" )
-    // tableCellAction.appendChild(x) 
-    tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
+    let x = document.createElement("button");
+    x.setAttribute("text", "Delete" )
+    x.setAttribute("id", "b" + object.id)
+    x.innerText = "Delete Partner"
+    tableCellAction.appendChild(x)
+    // tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
     document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities) 
-     
+    document.getElementById("b" + object.id).addEventListener('click', deletePartnerFunction)
 
+  
   })
   
 }
+
 /**function "clickEvent" to delete partner from onclick within table */
-function deletePartnerFunction() {
-alert("Sexy Stuff Going on Here!")
+function deletePartnerFunction(event) {
+  // let deletePevent.target.idartnerByID = event.target.id
+  debugger
+  alert("SexyThings Going On Here!!!!!!")
 } 
 
 

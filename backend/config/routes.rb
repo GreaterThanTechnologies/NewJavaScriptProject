@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # post 'sessions', to: 'sessions#create'
   # delete 'sessions', to: 'sessions#destroy'
   # post 'sessions/token', to: 'sessions#identify'
+  # get '/responsibilities' => 'responsibilities#index'
 
 end

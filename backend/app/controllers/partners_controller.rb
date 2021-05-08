@@ -11,7 +11,7 @@ class PartnersController < ApplicationController
   end
 
   def create
-    partner = User.new(partner_params)
+    partner = Partner.new(partner_params)
     partner.email = params[:partner][:email].downcase
     partner.partnername = params[:partner][:email].upcase.split("@")[0]
     if partner.save
@@ -27,16 +27,16 @@ class PartnersController < ApplicationController
     # unsure of what is next here, I forget. Have to revist trainings
   end
 
-  def delete
+  def destroy
     partner = Partner.find_by(id:params[:id])
     partner.destroy
+    render json:{message: "success"}
   end
 
   private
   
   def partner_params
-    params.require(:partner).permit(:fname, :lname, :title, :level,
-    responsibilities_attributes: [:task])
+    params.require(:partner).permit(:fname, :lname, :title, :level, :id)
   end
   
 end
