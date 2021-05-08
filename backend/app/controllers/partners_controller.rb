@@ -28,9 +28,9 @@ class PartnersController < ApplicationController
   end
 
   def destroy
-    partner = Partner.find_by(id:params[:id])
+    partner = Partner.find_by(id: params[:id])
     partner.destroy
-    render json:{message: "success"}
+    render json:{message: "successfully deleted partner!"}
   end
 
   private

@@ -8,6 +8,15 @@ class Partner {
   }
 }
 
+// const options = {
+//   method: "POST",
+//   headers: {
+//     "Content-type": "application/json",
+//     Accept: "application/jason"
+//   }
+//   body :JSON.stringify(body)
+// }
+
 // gathers information from the database and returning the
 // response for manipulating the DOM
 function fetchPartners() {
@@ -16,7 +25,6 @@ function fetchPartners() {
   .then(array => {
     listPartnerLists(array)
     partnerTableRows(array)
-    // iterateOverPartnersForDeletion(array)
   })
 }
 // fills in the dropdown select partner box with the
@@ -37,6 +45,7 @@ function partnerTableRows(array) {
   array.forEach(function(object) {
     // creates the  row inside the table
     let tableRow = tableData.insertRow(object.id)
+    tableRow.setAttribute("id", "r" + object.id)
     // within index 0 of the tableRow sets the html to equal partner's
     // first and last name as listed within the partner column as well
     // as includes the onclick to the partner name
@@ -63,18 +72,29 @@ function partnerTableRows(array) {
     // tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
     document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities) 
     document.getElementById("b" + object.id).addEventListener('click', deletePartnerFunction)
-
-  
-  })
-  
+  })  
 }
+
+
 
 /**function "clickEvent" to delete partner from onclick within table */
 function deletePartnerFunction(event) {
   // takes the event object and removes the "b" from in front of the
   // id to retain the id of the partner for deletion
-  let partnerDltbtnId = this.id.slice(1)
+  let subBtnPartId = this.id.slice(1)
+  // finds the partner show page by id number
+  fetch(`http://localhost:3000/partners/${subBtnPartId}`, {
+    method: "DELETE"
+  }).then(resp => resp.json()) 
+    .then(action => {
+      dleBtn = "r" + subBtnPartId
+      el = document.getElementById(`${dleBtn}`)
+      el.remove()
+    })
 
+    
+   
+  console.log(subBtnPartId)
  }
 
 

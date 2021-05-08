@@ -25,3 +25,4 @@ responsibility_f = Responsibility.create(partner_id: "6", task: "Put Together Co
 responsibility_g = Responsibility.create(partner_id: "7", task: "Terms & Conditions")
 responsibility_h = Responsibility.create(partner_id: "8", task: "Provacy Policy")
 responsibility_i = Responsibility.create(partner_id: "9", task: "Research Immediate Competition")
+responsibility_j = Responsibility.create(partner_id: "4", task: "This is the SECOND Task for Ebony")
