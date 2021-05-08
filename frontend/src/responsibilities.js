@@ -41,9 +41,11 @@ function addAnotherTask() {
 // per instructor
 document.getElementById("submitTasksBtn").addEventListener('click', submitTasksToDb)
 function submitTasksToDb() {
-  event.preventDefault() 
+  event.preventDefault()
+ 
   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
+
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
       submitTaskSave(taskDataTasks[counter].value)
@@ -52,15 +54,25 @@ function submitTasksToDb() {
   else{
     submitTaskSave(taskDataTasks.value)
   }
-    submitTaskSave(taskDataName.value) 
+   
 }
 // receives the value of the submitted tasks from above function
 // going to save tasks to the db
 function submitTaskSave(tasks) {
   event.preventDefault()
+  let optionsList = document.getElementById('partnerOptionsList')
+  let partnerId = optionsList.options[optionsList.selectedIndex].id
+  fetch(`http://localhost:3000/responsibilities/${partnerId}`, {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(tasks),
+    
+  }).then(resp => resp.json())
+    .then(data => console.log(data))
+  console.log(tasks)
+    // gets value of the individual inputs
+    // inputList.children[0].value
 
-     debugger
-     console.log(tasks)
    }
   
 

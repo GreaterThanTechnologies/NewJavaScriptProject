@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_171309) do
+ActiveRecord::Schema.define(version: 2021_05_08_230122) do
 
   create_table "partners", force: :cascade do |t|
     t.string "fname"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_171309) do
     t.string "username"
   end
 
-  create_table "responsibilities", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.integer "partner_id"
     t.string "task"
     t.datetime "created_at", precision: 6, null: false

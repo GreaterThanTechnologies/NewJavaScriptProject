@@ -87,6 +87,7 @@ function deletePartnerFunction(event) {
     method: "DELETE"
   }).then(resp => resp.json()) 
     .then(action => {
+      // creates the id= for us to find and delete row
       dleBtn = "r" + subBtnPartId
       el = document.getElementById(`${dleBtn}`)
       el.remove()

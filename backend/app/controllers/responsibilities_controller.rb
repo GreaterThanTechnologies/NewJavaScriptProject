@@ -11,18 +11,24 @@ class ResponsibilitiesController < ApplicationController
   # end
 
   def show
-    responsibility = Responsibility.find_by(id: params[:id])
+    responsibility = Responsibility.find_by(partner_id: params[:id])
+    binding.pry
     render json: responsibility.to_json
   end
 
   def create
+
     responsibility = Responsibility.new(responsibility_params)
+    binding.pry
     if responsibility.save
+      
       render json: responsibility
     else 
       render json: {message: responsibility.errors.full_messages}
     end
   end
+
+
 
   # def update
   #   responsibility = Responsibility.find_by(id: params[:id])
@@ -37,7 +43,7 @@ class ResponsibilitiesController < ApplicationController
   private
 
   def responsibility_params
-    params.require(:responsibility).permit(:task, :id, 
-    partner_attributes: [:fname, :lname, :title, :level])
+    params.require(:responsibility).permit(:task, :partner_id, partner_attributes: [:id])
+  end
 end
-end
+ 
