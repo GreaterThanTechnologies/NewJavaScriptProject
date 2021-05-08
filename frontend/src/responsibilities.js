@@ -26,13 +26,9 @@ function fetchResponsibilities(event) {
       modal.style.display = "none";
       list.innerHTML = ""
     }
-    
   }
   console.log(data)
-
  }
-
-
 function addAnotherTask() {
   event.preventDefault()
  let addTaskList = document.getElementById('inputList')
@@ -48,17 +44,26 @@ function submitTasksToDb() {
   event.preventDefault() 
   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
- 
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
-       console.log(taskDataTasks[counter].value)
+      submitTaskSave(taskDataTasks[counter].value)
     }
   }
   else{
-    console.log(taskDataTasks.value)
+    submitTaskSave(taskDataTasks.value)
   }
-    console.log(taskDataName.value) 
+    submitTaskSave(taskDataName.value) 
 }
+// receives the value of the submitted tasks from above function
+// going to save tasks to the db
+function submitTaskSave(tasks) {
+  event.preventDefault()
+
+     debugger
+     console.log(tasks)
+   }
+  
+
 
 // works
 console.log("from Responsibilities.js")

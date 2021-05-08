@@ -6,9 +6,6 @@ class Partner {
     this.title = title
     this.level = level
   }
-  static deletePartner(e) {
-    // class method for deleting the partner
-  }
 }
 
 // gathers information from the database and returning the
@@ -19,6 +16,7 @@ function fetchPartners() {
   .then(array => {
     listPartnerLists(array)
     partnerTableRows(array)
+    // iterateOverPartnersForDeletion(array)
   })
 }
 // fills in the dropdown select partner box with the
@@ -29,7 +27,6 @@ function listPartnerLists(array) {
     let partner = document.createElement("OPTION");
     partner.text = object.fname
     partner.id = object.id
-    // console.log(partner)
     partnerList.add(partner)
   })
 }
@@ -74,10 +71,13 @@ function partnerTableRows(array) {
 
 /**function "clickEvent" to delete partner from onclick within table */
 function deletePartnerFunction(event) {
-  // let deletePevent.target.idartnerByID = event.target.id
-  debugger
-  alert("SexyThings Going On Here!!!!!!")
-} 
+  // takes the event object and removes the "b" from in front of the
+  // id to retain the id of the partner for deletion
+  let partnerDltbtnId = this.id.slice(1)
+
+ }
+
+
 
 
 // works
