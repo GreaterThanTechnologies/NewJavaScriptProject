@@ -1,8 +1,7 @@
 class PartnersController < ApplicationController
 
   def index
-    partners = Partner.all 
-    render json: partners 
+    render json: Partner.all, key_transform: :camel_lower
   end
 
   def show

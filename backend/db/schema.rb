@@ -10,25 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_230122) do
+ActiveRecord::Schema.define(version: 2021_04_29_194139) do
 
   create_table "partners", force: :cascade do |t|
     t.string "fname"
+    t.string "lname"
     t.string "title"
+    t.string "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "level"
-    t.string "lname"
-    t.string "email"
-    t.string "password_digest"
-    t.string "username"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "partner_id"
-    t.string "task"
+    t.string "todo"
+    t.integer "partner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["partner_id"], name: "index_tasks_on_partner_id"
   end
 
+  add_foreign_key "tasks", "partners"
 end

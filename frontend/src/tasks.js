@@ -1,21 +1,26 @@
-const responsibilities = []
+const tasks = []
 
 
 
 /** after reviewing the fetch cheat sheet */
 function fetchResponsibilities(event) {
   let pIdSplice = event.target.id.slice(1)
-  return fetch(`http://localhost:3000/responsibilities/${pIdSplice}`)
+  return fetch(`http://localhost:3000/tasks/${pIdSplice}`)
   .then(response => response.json())
-  .then(data => { modalWithData(data.task)})
+  //  .then(data => { modalWithData(data.task)})
+  .then(response => { 
+    return modalWithData(response.id) 
+  })
+
 }
  function modalWithData(data) {
+   debugger /**at this point partner_id is being transferred to this function */
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
   let list = document.getElementById('myTask')
   let taskPara = document.createElement('li')
   taskPara.innerText = data
-  list.appendChild(taskPara)
+   list.appendChild(taskPara)
   let span = document.getElementsByClassName("close")[0];
   span.onclick = function() {
     modal.style.display = "none";
@@ -62,7 +67,7 @@ function submitTaskSave(tasks) {
   event.preventDefault()
   let optionsList = document.getElementById('partnerOptionsList')
   let partnerId = optionsList.options[optionsList.selectedIndex].id
-  fetch(`http://localhost:3000/responsibilities/${partnerId}`, {
+  fetch(`http://localhost:3000/tasks/${partnerId}`, {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(tasks),
@@ -78,7 +83,7 @@ function submitTaskSave(tasks) {
 
 
 // works
-console.log("from Responsibilities.js")
+console.log("from tasks.js")
 
 
 
