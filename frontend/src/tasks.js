@@ -5,35 +5,53 @@ const tasks = []
 /** after reviewing the fetch cheat sheet */
 function fetchResponsibilities(event) {
   let pIdSplice = event.target.id.slice(1)
-  return fetch(`http://localhost:3000/tasks/${pIdSplice}`)
-  .then(response => response.json())
-  //  .then(data => { modalWithData(data.task)})
-  .then(response => { 
-    return modalWithData(response.id) 
+  pIdSplice = parseInt(pIdSplice)
+  fetch("http://localhost:3000/partners/")
+  .then(resp => resp.json())
+  .then(data => {
+    separationOfTasks(data, pIdSplice)
   })
-
 }
- function modalWithData(data) {
-   debugger /**at this point partner_id is being transferred to this function */
+/** I think I need to go through and iterate over the data to
+ * extract the partners todo lists, then in displayInsideModal
+ * I can then iterate through that to extract only the todos 
+ * the object. this could be done in one function, however
+ * much easier to maintain and troubleshoot if separated
+ */
+function separationOfTasks(data, pIdSplice){
+  return displayInsideModal(data, pIdSplice)
+}
+
+
+
+//  only shows a all todos, not the todos associated with the partner
+function displayInsideModal(data, pIdSplice) {
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
-  let list = document.getElementById('myTask')
-  let taskPara = document.createElement('li')
-  taskPara.innerText = data
-   list.appendChild(taskPara)
+  let taskDiv = document.getElementById('myTask')
+  for (let list of data) {
+    const li = document.createElement("li")
+    // if list id === list(pIdSplice) 
+    li.innerText = list.tasks[0].todo
+    taskDiv.append(li)
+  }
   let span = document.getElementsByClassName("close")[0];
-  span.onclick = function() {
+  // closing the modal does not clear out what was there before when opening it 
+  // up again
+  span.onclick = function(event) {
     modal.style.display = "none";
-    list.innerHTML = ""
+    li.innerHTML = ""
+    
   }
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
-      list.innerHTML = ""
+      li.innerHTML = ""
     }
   }
-  console.log(data)
- }
+
+  // console.log(data)
+ 
 function addAnotherTask() {
   event.preventDefault()
  let addTaskList = document.getElementById('inputList')
@@ -84,6 +102,4 @@ function submitTaskSave(tasks) {
 
 // works
 console.log("from tasks.js")
-
-
-
+  }
