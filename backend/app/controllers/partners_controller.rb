@@ -9,23 +9,6 @@ class PartnersController < ApplicationController
     render json: partner
   end
 
-  def create
-    binding.pry
-    todo = Partner.new(partner_params)
-    binding.pry
-    if partner.save
-      # session[:partner_id] = partner.id
-      render json: partner
-    else
-      render json: {message: "Sign up failed..."}
-    end
-  end
-
-  def update
-    partner = Partner.find_by(id: params[:id])
-    # unsure of what is next here, I forget. Have to revist trainings
-  end
-
   def destroy
     partner = Partner.find_by(id: params[:id])
     partner.destroy

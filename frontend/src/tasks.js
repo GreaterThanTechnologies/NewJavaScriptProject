@@ -46,7 +46,7 @@ function displayInsideModal(data) {
 }
   // console.log(data)
   
-function addAnotherTask() {
+function addAnotherTask(e) {
   event.preventDefault()
   let addTaskList = document.getElementById('inputList')
   let task = document.createElement("INPUT");
@@ -56,41 +56,50 @@ function addAnotherTask() {
 }
 // for adding tasks to specific partners, must use eventListener
 // per instructor
-document.getElementById("form1").addEventListener('click', submitTasksToDb)
-function submitTasksToDb(e) {
-  e.preventDefault()
- 
+document.getElementById("form1").addEventListener('submit', submitTasksToDb)
+function submitTasksToDb() {
+  event.preventDefault()
   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
-
+debugger
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
-      postTask(taskDataTasks[counter].value)
+      console.log(taskDataTasks[counter].value)
     }
   }
   else{
-    postTask(taskDataTasks.value)
+    console.log(taskDataTasks.value)
   }
+  counter = 0;
 }
 // receives the value of the submitted tasks from above function
 // going to save tasks to the db
 document.getElementById("submitTasksBtn").addEventListener("click", postTask);
-function postTask(data) {
-  event.preventDefault()
+function postTask(e) {
   let optionsList = document.getElementById('partnerOptionsList')
-  let partnerId = optionsList.options[optionsList.selectedIndex].id
+  const partnerId = optionsList.options[optionsList.selectedIndex].id
+  const userInput = event.srcElement.form[1].value
+  const body ={
+    task: {
+      todo: userInput,
+      partner_id: partnerId
+    }
+  }
   const options ={
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
     },
-    body:JSON.stringify({body})
+    body:JSON.stringify(body)
   }
-  fetch(`http://localhost:3000/tasks/${partnerId}`, options)
+  fetch("http://localhost:3000/tasks/", options)
   .then(resp => resp.json())
-    .then(data => console.log(data))
-    console.log(tasks)
+  .then(data => displayInsideModal(data)) /** this does not work throws
+  error that it is not iterable */
+  e.preventDefault()
+
 }
+
     // gets value of the individual inputs
     // inputList.children[0].value
 

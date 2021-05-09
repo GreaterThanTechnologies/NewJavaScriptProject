@@ -6,27 +6,14 @@ class TasksController < ApplicationController
 
   def show
     task = Task.find_by(id: params[:id])
-     render json: task.to_json
+    render json: task.to_json
   end
 
   def create
-    binding.pry
     task = Task.create(task_params)
-      render json: task
+    render json: task
   end
-
-
-
-  # def update
-  #   Task = Task.find_by(id: params[:id])
-  #   # unsure of what is next here, I forget. Have to revist trainings
-  # end
-  
-  # def delete
-  #   Task = Task.find_by(id: params[:id])
-  #   Task.destroy
-  # end
-
+       
   private
 
   def task_params
