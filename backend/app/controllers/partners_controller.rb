@@ -10,9 +10,9 @@ class PartnersController < ApplicationController
   end
 
   def create
-    partner = Partner.new(partner_params)
-    partner.email = params[:partner][:email].downcase
-    partner.partnername = params[:partner][:email].upcase.split("@")[0] 
+    binding.pry
+    todo = Partner.new(partner_params)
+    binding.pry
     if partner.save
       # session[:partner_id] = partner.id
       render json: partner

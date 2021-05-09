@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :partners
 
   get '/tasks/:id' => 'tasks#show'
-
+  post '/tasks/:id' => 'tasks#create'
 
 end
