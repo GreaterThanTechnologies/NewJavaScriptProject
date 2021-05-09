@@ -10,11 +10,9 @@ class TasksController < ApplicationController
   end
 
   def create
-
-    task = Task.new(task_params)
+    task = Task.create(task_params)
      if Task.save
-      
-      render json: Task
+      render json: task
     else 
       render json: {message: Task.errors.full_messages}
     end
@@ -35,7 +33,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:Task).permit(:task, :partner_id, partner_attributes: [:id])
+    params.require(:task).permit(:todo)
   end
 end
  

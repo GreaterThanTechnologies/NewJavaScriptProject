@@ -1,6 +1,3 @@
-const tasks = []
-
-
 
 /** after reviewing the fetch cheat sheet */
 function fetchResponsibilities(event) {
@@ -9,7 +6,7 @@ function fetchResponsibilities(event) {
   fetch("http://localhost:3000/partners/")
   .then(resp => resp.json())
   .then(data => {
-    separationOfTasks(data, pIdSplice)
+    displayInsideModal(data, pIdSplice)
   })
 }
 /** I think I need to go through and iterate over the data to
@@ -18,14 +15,11 @@ function fetchResponsibilities(event) {
  * the object. this could be done in one function, however
  * much easier to maintain and troubleshoot if separated
  */
-function separationOfTasks(data, pIdSplice){
-  return displayInsideModal(data, pIdSplice)
-}
-
-
-
+// function separationOfTasks(data, pIdSplice){
+//   return displayInsideModal(data, pIdSplice)
+// }
 //  only shows a all todos, not the todos associated with the partner
-function displayInsideModal(data, pIdSplice) {
+function displayInsideModal(data) {
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
   let taskDiv = document.getElementById('myTask')
@@ -39,9 +33,9 @@ function displayInsideModal(data, pIdSplice) {
   // closing the modal does not clear out what was there before when opening it 
   // up again
   span.onclick = function(event) {
+    document.getElementById('myTask')
     modal.style.display = "none";
     li.innerHTML = ""
-    
   }
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -49,57 +43,60 @@ function displayInsideModal(data, pIdSplice) {
       li.innerHTML = ""
     }
   }
-
+}
   // console.log(data)
- 
+  
 function addAnotherTask() {
   event.preventDefault()
- let addTaskList = document.getElementById('inputList')
- let task = document.createElement("INPUT");
- task.type = "text"
- task.name = "task"
- inputList.appendChild(task)
+  let addTaskList = document.getElementById('inputList')
+  let task = document.createElement("INPUT");
+  task.type = "text"
+  task.name = "task"
+  inputList.appendChild(task)
 }
 // for adding tasks to specific partners, must use eventListener
 // per instructor
-document.getElementById("submitTasksBtn").addEventListener('click', submitTasksToDb)
-function submitTasksToDb() {
-  event.preventDefault()
+document.getElementById("form1").addEventListener('click', submitTasksToDb)
+function submitTasksToDb(e) {
+  e.preventDefault()
  
   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
 
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
-      submitTaskSave(taskDataTasks[counter].value)
+      postTask(taskDataTasks[counter].value)
     }
   }
   else{
-    submitTaskSave(taskDataTasks.value)
+    postTask(taskDataTasks.value)
   }
-   
 }
 // receives the value of the submitted tasks from above function
 // going to save tasks to the db
-function submitTaskSave(tasks) {
+document.getElementById("submitTasksBtn").addEventListener("click", postTask);
+function postTask(data) {
   event.preventDefault()
   let optionsList = document.getElementById('partnerOptionsList')
   let partnerId = optionsList.options[optionsList.selectedIndex].id
-  fetch(`http://localhost:3000/tasks/${partnerId}`, {
+  const options ={
     method: "POST",
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(tasks),
-    
-  }).then(resp => resp.json())
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({body})
+  }
+  fetch(`http://localhost:3000/tasks/${partnerId}`, options)
+  .then(resp => resp.json())
     .then(data => console.log(data))
-  console.log(tasks)
+    console.log(tasks)
+}
     // gets value of the individual inputs
     // inputList.children[0].value
 
-   }
+
   
 
 
 // works
 console.log("from tasks.js")
-  }

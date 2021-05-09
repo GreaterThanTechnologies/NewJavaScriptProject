@@ -8,17 +8,6 @@ class Partner {
   }
 }
 
-// const options = {
-//   method: "POST",
-//   headers: {
-//     "Content-type": "application/json",
-//     Accept: "application/jason"
-//   }
-//   body :JSON.stringify(body)
-// }
-
-// gathers information from the database and returning the
-// response for manipulating the DOM
 function fetchPartners() {
   fetch('http://localhost:3000/partners')
   .then(resp => resp.json())

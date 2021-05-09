@@ -18,22 +18,20 @@
         <div id="elHolder">
           <!-- Start Form -->
           <div id="taskForm" class="">
-            <form name="form1" onsubmit="submitTasksToDb()" id="form1">
+            <form name="form1" id="form1">
               <label for="fname">Select Partner</label><br />
               <select id="partnerOptionsList" name="fname">
                 <br />
                 <div id="showPartnersList">
                   <!-- <option value="fname">Select</option><br><br> -->
-                </div></select
-              ><br />
+                </div></select><br />
               <label for="title">Add Task</label><br />
               <div id="inputList">
                 <input type="text" name="task" />
               </div>
-              <!-- needs to be attached to a click event -->
               <div id="addTaskClick">
-                <button onclick="addAnotherTask()">Add Another Task</button
-                ><br /><br />
+                <button onclick="addAnotherTask()">Add Another Task</button>
+                <br/><br/>
               </div>
               <!-- needs to be attached to a click event -->
               <button id="submitTasksBtn" type="submit">
