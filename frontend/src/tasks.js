@@ -24,10 +24,13 @@ function displayInsideModal(data) {
   modal.style.display = "block";
   let taskDiv = document.getElementById('myTask')
   for (let list of data) {
-    const li = document.createElement("li")
+    const todoLi = document.createElement("li")
+    const todoDelete = document.createElement('button')
+    todoDelete.innerText = "Delete"
     // if list id === list(pIdSplice) 
-    li.innerText = list.tasks[0].todo
-    taskDiv.append(li)
+    todoLi.innerText = list.tasks[0].todo
+    todoLi.prepend(todoDelete)
+    taskDiv.append(todoLi)
   }
   let span = document.getElementsByClassName("close")[0];
   // closing the modal does not clear out what was there before when opening it 
