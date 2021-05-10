@@ -59,12 +59,10 @@ function partnerTableRows(array) {
     x.innerText = "Delete Partner"
     tableCellAction.appendChild(x)
     // tableCellAction.innerHTML = '<button onclick="deletePartnerFunction()">Delete Partner</button>'
-    document.getElementById("c" + object.id).addEventListener('click', fetchResponsibilities) 
+    document.getElementById("c" + object.id).addEventListener('click', fetchTasks) 
     document.getElementById("b" + object.id).addEventListener('click', deletePartnerFunction)
   })  
 }
-
-
 
 /**function "clickEvent" to delete partner from onclick within table */
 function deletePartnerFunction(event) {
@@ -81,15 +79,10 @@ function deletePartnerFunction(event) {
       el = document.getElementById(`${dleBtn}`)
       el.remove()
     })
-
-    
-   
-  console.log(subBtnPartId)
  }
 
 
 
 
-// works
-console.log("from partners.js")
+
  

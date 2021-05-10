@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
    
   def index
-    render json: Task.all
+    partner = Partner.find_by(id: params[:partner_id])
+    render json: partner.tasks
   end
 
   def show
@@ -15,6 +16,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+     
     task = Task.find_by(id: params[:id])
     
   end

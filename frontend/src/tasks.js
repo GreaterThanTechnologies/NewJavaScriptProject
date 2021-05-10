@@ -1,14 +1,17 @@
 
 /** after reviewing the fetch cheat sheet */
-function fetchResponsibilities(event) {
+function fetchTasks(event) {
   let pIdSplice = event.target.id.slice(1)
   pIdSplice = parseInt(pIdSplice)
-  fetch("http://localhost:3000/partners/")
+  fetch(`http://localhost:3000/partners/${pIdSplice}/tasks`)
   .then(resp => resp.json())
   .then(data => {
     displayInsideModal(data, pIdSplice)
   })
 }
+
+
+
 /** I think I need to go through and iterate over the data to
  * extract the partners todo lists, then in displayInsideModal
  * I can then iterate through that to extract only the todos 
@@ -28,11 +31,11 @@ function displayInsideModal(data) {
     const todoDelete = document.createElement('button')
     todoDelete.innerText = "Delete"
     // if list id === list(pIdSplice) 
-    todoLi.innerText = list.tasks[0].todo
+    todoLi.innerText = list.todo
     todoDelete.addEventListener('click', function(e) {
-      deleteTodo(e)
+      deleteTodo(todoLi)
     })
-    todoLi.prepend(todoDelete)
+    // todoLi.prepend(todoDelete)
     taskDiv.append(todoLi)
   }
   let span = document.getElementsByClassName("close")[0];
@@ -46,38 +49,30 @@ function displayInsideModal(data) {
   window.onclick = function() {
     if (event.target == modal) {
       modal.style.display = "none";
-      li.innerHTML = ""  /**clear modal somehow... modal.clear? */
+      taskDiv.innerHTML = ""  /**clear modal somehow... modal.clear? */
     }
   }
 }
 
-function deleteTodo(e) {
-  debugger
-  let taskId = e.target.nextSibling.previousSibling.id
-  // console.log(taskId)
-  fetch(`http://localhost:3000/tasks/${taskId}`, {
-    method: "DELETE"
-  }).then(resp => resp.json())
-    .then(taskIde => console.log(taskIde))
-}
-  // console.log(data)
-  
-function addAnotherTask(e) {
-  event.preventDefault()
-  let addTaskList = document.getElementById('inputList')
-  let task = document.createElement("INPUT");
-  task.type = "text"
-  task.name = "task"
-  inputList.appendChild(task)
-}
-// for adding tasks to specific partners, must use eventListener
-// per instructor
+
+
+
+
+// function deleteTodo(todoLi) {
+   
+//   let taskId = e.target.nextSibling.previousSibling.id
+//   fetch(`http://localhost:3000/tasks/${taskId}`, {
+//     method: "DELETE"
+//   }).then(resp => resp.json())
+//     .then(taskId => console.log(taskId))
+     
+// }
+
 document.getElementById("form1").addEventListener('submit', submitTasksToDb)
 function submitTasksToDb() {
   event.preventDefault()
   let taskDataTasks = document.forms["form1"]["task"]
   let taskDataName = document.forms["form1"]["fname"]
-debugger
   if(taskDataTasks.length) {
     for (let counter = 0; counter < taskDataTasks.length; counter++) {
       console.log(taskDataTasks[counter].value)
@@ -108,9 +103,9 @@ function postTask(e) {
     },
     body:JSON.stringify(body)
   }
-  fetch("http://localhost:3000/tasks/", options)
+  fetch("http://localhost:3000/tasks", options)
   .then(resp => resp.json())
-  .then(data => console.log(data))
+  .then(task => {debugger})
   document.getElementById("form1").reset();
 
    /** this does not work throws

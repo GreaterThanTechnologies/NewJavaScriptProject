@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :partners
 
   get '/tasks/:id' => 'tasks#show'
-  delete '/tasks/:id' => 'tasks#create'
-  
+  get '/partners/:partner_id/tasks' => 'tasks#index'
 
 end
