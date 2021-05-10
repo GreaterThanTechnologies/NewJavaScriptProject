@@ -29,23 +29,36 @@ function displayInsideModal(data) {
     todoDelete.innerText = "Delete"
     // if list id === list(pIdSplice) 
     todoLi.innerText = list.tasks[0].todo
+    todoDelete.addEventListener('click', function(e) {
+      deleteTodo(e)
+    })
     todoLi.prepend(todoDelete)
     taskDiv.append(todoLi)
   }
   let span = document.getElementsByClassName("close")[0];
   // closing the modal does not clear out what was there before when opening it 
   // up again
-  span.onclick = function(event) {
+  span.onclick = function() {
     document.getElementById('myTask')
     modal.style.display = "none";
-    li.innerHTML = ""
+    li.innerHTML = "" 
   }
-  window.onclick = function(event) {
+  window.onclick = function() {
     if (event.target == modal) {
       modal.style.display = "none";
-      li.innerHTML = ""
+      li.innerHTML = ""  /**clear modal somehow... modal.clear? */
     }
   }
+}
+
+function deleteTodo(e) {
+  debugger
+  let taskId = e.target.nextSibling.previousSibling.id
+  // console.log(taskId)
+  fetch(`http://localhost:3000/tasks/${taskId}`, {
+    method: "DELETE"
+  }).then(resp => resp.json())
+    .then(taskIde => console.log(taskIde))
 }
   // console.log(data)
   
@@ -97,7 +110,10 @@ function postTask(e) {
   }
   fetch("http://localhost:3000/tasks/", options)
   .then(resp => resp.json())
-  .then(data => displayInsideModal(data)) /** this does not work throws
+  .then(data => console.log(data))
+  document.getElementById("form1").reset();
+
+   /** this does not work throws
   error that it is not iterable */
   e.preventDefault()
 
