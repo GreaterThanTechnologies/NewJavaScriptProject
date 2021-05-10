@@ -27,13 +27,16 @@ function listPartnerLists(array) {
     partnerList.add(partner)
   })
 }
+
+
 // populates the table with the partner data, names, title
 // level.
 function partnerTableRows(array) { 
   let tableData = document.getElementById('table1')
   array.forEach(function(object) {
     // creates the  row inside the table
-    let tableRow = tableData.insertRow(object.id)
+    let headerRow = document.querySelector("#table1 > tbody > tr")
+    let tableRow = tableData.insertRow(headerRow[0])
     tableRow.setAttribute("id", "r" + object.id)
     // within index 0 of the tableRow sets the html to equal partner's
     // first and last name as listed within the partner column as well
@@ -78,7 +81,8 @@ function deletePartnerFunction(event) {
       dleBtn = "r" + subBtnPartId
       el = document.getElementById(`${dleBtn}`)
       el.remove()
-    })
+      debugger
+     })
  }
 
 
