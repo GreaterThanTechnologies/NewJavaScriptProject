@@ -24,6 +24,7 @@ tr:nth-child(odd) {
 
 h2 {
   color: white;
+  margin-left: 150px;
 }
 
 h1 {
@@ -38,24 +39,15 @@ h1 {
   );
 }
 
-.whiteFont {
-  color: #fff;
-}
+
 
 .tableDiv {
   padding-top: 150px;
 }
-.negativeSpace100 {
-  padding-top: -100px;
-}
 
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 body {
-  background-image: url("../../backend/storage/images/Middle Monitor.png");
+  background-image: url("../../backend/storage/Middle Monitor.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -71,7 +63,7 @@ form {
   color: white;
 }
 
-.column {
+/* .column {
   float: inherit;
 }
 .left {
@@ -79,23 +71,23 @@ form {
 }
 .right {
   width: 75%;
-}
+} */
 
 #elHolder {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
 }
 #dataTable {
-  width: 100%;
-  float: center;
+  width: 1500px;
+
 }
 
-/* .row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
+#taskForm {
+  width: 300px;
+  margin-left: 150px;
+}
+
 
 #inputList, #partnerList {
   display: flex;
