@@ -55,7 +55,7 @@ h1 {
 }
 
 body {
-  background-image: url("../../backend/storage/images/Middle Monitor.png");
+  background-image: url("../../backend/storage/Middle Monitor.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -82,7 +82,7 @@ form {
 }
 
 #elHolder {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
 }
