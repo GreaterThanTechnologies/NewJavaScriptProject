@@ -1,6 +1,12 @@
 # Joint Venture Partner Manager App
 by James Hyatt
 **********
+This application was created during the fourth phase of FlatIron School's
+Software Engineering Full-time Online course. The intention of this application
+is to showcase that we have learned enough JavaScript to continue on in the
+program. This application will not be further developed after the course is
+completed. 
+**********
 ## How to set up the App
 0. This app works best with Ruby 2.6.1 & Rails 6.1.3.1.
 1. Visit my [Github repository]
