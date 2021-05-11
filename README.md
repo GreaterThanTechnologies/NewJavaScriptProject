@@ -19,6 +19,6 @@ logging in. The application is fed through a seed file.
 their name in tha table
 2. One can delete a partner within the table
 ### Index Page
-![Landing Page] (/NewJavaScriptProject/backend/storage/images/index.html.page.png)
+![Landing Page] (../../NewJavaScriptProject/backend/storage/images/index.html.page.png)
 
 
