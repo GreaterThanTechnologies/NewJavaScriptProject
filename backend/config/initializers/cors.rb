@@ -5,6 +5,11 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
+
+
+# CORS allows cross origin resource when requesting a fetch response from somewhere
+# outside of its originating request. The '*' indicates the wildcard and
+# is stating that it can originate from anywhere and request anything available.
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
