@@ -16,7 +16,6 @@ class Task {
     })
   }
 
-
   static appendTaskToModal(data) {
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -109,3 +108,17 @@ class Task {
 
 // receives the value of the submitted tasks from above function
 // going to save tasks to the db
+
+
+
+
+
+
+
+
+
+
+
+
+
+

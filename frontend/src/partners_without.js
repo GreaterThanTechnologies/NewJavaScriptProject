@@ -73,7 +73,7 @@ function deletePartnerFunction(event) {
       dleBtn = "r" + subBtnPartId
       el = document.getElementById(`${dleBtn}`)
       el.remove()
-      debugger
+      
      })
  }
 

@@ -94,7 +94,7 @@ function postTask(e) {
   }
   fetch("http://localhost:3000/tasks", options)
   .then(resp => resp.json())
-  .then(task => {debugger})
+  .then(task => {})
   document.getElementById("form1").reset();
 
    /** this does not work throws
@@ -109,6 +109,3 @@ function postTask(e) {
 
   
 
-
-// works
-console.log("from tasks.js")
