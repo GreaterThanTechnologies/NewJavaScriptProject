@@ -1,4 +1,4 @@
-
+/** this file is not currently being used, this is the code that is not set up into classes */
 
 function fetchPartners() {
   fetch('http://localhost:3000/partners')

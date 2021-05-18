@@ -1,5 +1,7 @@
 
-/** after reviewing the fetch cheat sheet */
+/** this is a functioning file without the use of classes. This is not in the production
+ * application as classes were a requirement.
+ */
 function fetchTasks(event) {
   let pIdSplice = event.target.id.slice(1)
   pIdSplice = parseInt(pIdSplice)
@@ -15,6 +17,8 @@ function appendTaskToModal(data) {
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
   let taskDiv = document.getElementById('myTask')
+
+  
   for (let list of data) {
     const todoLi = document.createElement("li")
     const todoDelete = document.createElement('button')

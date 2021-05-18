@@ -20,6 +20,12 @@ class Task {
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
     let taskDiv = document.getElementById('myTask')
+    // debugger
+    this.appendLists(data, taskDiv, modal)
+  }
+
+
+   static appendLists(data, taskDiv, modal) { 
     for (let list of data) {
       let task = new Task(list)
       const todoLi = document.createElement("li")
