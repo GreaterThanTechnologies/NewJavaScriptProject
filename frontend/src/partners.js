@@ -3,7 +3,7 @@
 class Partner {
 
   /** the constructor is responsible for creating objects of the same type
-   * by calling the constructor function below */
+   * by calling the constructor function below using destructuring*/
   constructor({id, fname, lname, title, level}) {
     this.id = id
     this.fname = fname
@@ -26,7 +26,7 @@ class Partner {
     .then(resp => resp.json())
     .then(array => {
       let partners = array.map(partner => new Partner(partner))  
-      Partner.listPartnerLists(partners)
+      Partner.appendPartnerLists(partners)
       Partner.partnerTableRows(partners)
     })
   }
@@ -38,7 +38,7 @@ class Partner {
    * forEach. Ending the function with an .add to add each of the partners fname
    * as options for the dropdown
    */
-  static listPartnerLists(array) { 
+  static appendPartnerLists(array) { 
     let partnerList = document.getElementById('partnerOptionsList')
     array.forEach(function(object) {
       let partner = document.createElement("OPTION");
@@ -85,11 +85,11 @@ class Partner {
       // to the partner for the delete button for the destroy method
       // located within the rails backend operations.
       let tableCellAction = tableRow.insertCell(3)
-      let x = document.createElement("button");
-      x.setAttribute("text", "Delete" )
-      x.setAttribute("id", "b" + object.id)
-      x.innerText = "Delete Partner"
-      tableCellAction.appendChild(x)
+      let button = document.createElement("button");
+      button.setAttribute("text", "Delete" )
+      button.setAttribute("id", "b" + object.id)
+      button.innerText = "Delete Partner"
+      tableCellAction.appendChild(button)
       
       /** adds event listeners for click events that call on the action of deleting the partner when 
        * the delete button is clicked as well as the action of fetching tasks when the partners name

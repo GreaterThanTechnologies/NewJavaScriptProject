@@ -13,6 +13,7 @@ Partner.fetchPartners()
 
 /** this function merely helps to dry up the code by extracting a commonly used
  * code within the application and replacing it with this jsonToJs function
+ * this function takes in a json string and creates a JS object from it
  */
 function jsonToJs(resp) {
   return resp.json()
