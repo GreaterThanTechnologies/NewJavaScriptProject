@@ -20,28 +20,25 @@ class Task {
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
     let taskDiv = document.getElementById('myTask')
-    // debugger
-    this.appendLists(data, taskDiv, modal)
-  }
-
-
-   static appendLists(data, taskDiv, modal) { 
     for (let list of data) {
       let task = new Task(list)
-      const todoLi = document.createElement("li")
+      task.appendList(taskDiv, modal)
+    }}
+     
+  appendList(taskDiv, modal) {
+    const todoLi = document.createElement("li")
       // const todoDelete = document.createElement('button')
       // todoDelete.innerText = "Delete"
       // // if list id === list(pIdSplice) 
-      todoLi.innerText = task.todo
+      todoLi.innerText = this.todo
       // todoDelete.addEventListener('click', function(e) {
         // task.deleteTodo(todoLi)
       // }
       // todoLi.prepend(todoDelete)
       taskDiv.append(todoLi)
-    }
+    
+
     let span = document.getElementsByClassName("close")[0];
-    // closing the modal does not clear out what was there before when opening it 
-    // up again
     span.onclick = function() {
       document.getElementById('myTask')
       modal.style.display = "none";
@@ -50,7 +47,7 @@ class Task {
     window.onclick = function() {
       if (event.target == modal) {
         modal.style.display = "none";
-        taskDiv.innerHTML = ""  /**clear modal somehow... modal.clear? */
+        taskDiv.innerHTML = ""  
       }
     }
   }
