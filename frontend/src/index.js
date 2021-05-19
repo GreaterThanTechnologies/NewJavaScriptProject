@@ -24,5 +24,6 @@ function jsonToJs(resp) {
  * postTask function that is located in the Task class
  */
 document.getElementById("submitTasksBtn").addEventListener("click", Task.postTask);
+document.getElementById('partnerSort').addEventListener('click', Partner.sortingPartners)
 
 

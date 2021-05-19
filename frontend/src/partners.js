@@ -2,6 +2,7 @@
 /** names the class Partner */
 class Partner {
 
+  static all = []
   /** the constructor is responsible for creating objects of the same type
    * by calling the constructor function below using destructuring*/
   constructor({id, fname, lname, title, level}) {
@@ -10,7 +11,43 @@ class Partner {
     this.lname = lname
     this.title = title
     this.level = level
+    this.pushToArray = function() {
+      Partner.all.push(this)
+    }
+    this.pushToArray();
   }
+
+  /** takes the static "all" array that holds all the partners in it, iterates
+   * throught the list in a for loop for the length of the array and deletes
+   * the 'el' tags starting at index 1 leaving the header in tact. then sorts
+   * through the array and alphabetizes the list and sends that list to the
+   * table function for insertion
+   */
+  static sortingPartners() {
+    Partner.all.sort(function(a, b) {
+      let nameA = a.lname.toUpperCase(); 
+      let nameB = b.lname.toUpperCase(); 
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    }); 
+
+    let table = (document.getElementById('table1'))
+    const tableRowLength = (table.rows.length)
+
+    for(let index = 1; index < tableRowLength; index++){
+      let el= document.getElementById("r"+index)
+      console.log("r"+ index)
+      el.remove()
+      }
+    Partner.partnerTableRows(Partner.all)
+
+  }
+
 
   /**the static word is an indicator of a class function and is accessible
    * outside of the class in which it is named. fetch is a built in function
@@ -52,6 +89,8 @@ class Partner {
   // level by finding the element by ID table1, also iterating through
   // the response received by the fetchPartners function above, 
   static partnerTableRows(array) { 
+
+
     let tableData = document.getElementById('table1')
     // array.forEach(function(object) {
     //   debugger
@@ -137,6 +176,11 @@ class Partner {
       person.parentNode.removeChild(person)
      })
   }
+
+
+    
+
+ 
 
 }
 
